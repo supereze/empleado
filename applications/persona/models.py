@@ -2,6 +2,17 @@ from django.db import models
 
 from applications.departamento.models import Departamento
 
+class Habilidades(models.Model):
+    habilidad = models.CharField('Habilidad', max_length=50)
+
+    class Meta:
+        verbose_name = 'Habilidad Empleado'
+        verbose_name_plural = 'Habilidades Empleados'
+
+    def __str__(self):
+        return str(self.id) + '-' + self.habilidad 
+
+
 # Create your models here.
 class Empleado(models.Model):
     """Model definition for Persona"""
@@ -20,13 +31,14 @@ class Empleado(models.Model):
     job = models.CharField('Trabajo', max_length=1, choices=JOB_CHOICES)
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     #image = models.ImageField(, upload_to=None, height_field=None, width_field=None, max_length=None)
+    habilidades = models.ManyToManyField(Habilidades)
 
 
     class Meta:
-        verbose_name = 'Persona'
-        verbose_name_plural = 'Personas'
-        ordering = ['first_name']
-        unique_together = ('first_name', 'last_name')
+        verbose_name = 'Mi Empleado'
+        verbose_name_plural = 'Mis Empleados'
+        ordering = ['-first_name', 'last_name']
+        unique_together = ('first_name', 'departamento')
 
 
     def __str__(self):
