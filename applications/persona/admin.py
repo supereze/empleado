@@ -6,11 +6,12 @@ admin.site.register(Habilidades)
 
 class EmpleadoAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
         'first_name',
         'last_name',
         'job',
         'departamento',
-        'full_name'
+        'full_name',
     )
     #
     def full_name(self, obj):

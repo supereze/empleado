@@ -52,4 +52,12 @@ class ListByKword(ListView):
         print("lista resultado: ", lista    )
         return lista
 
-        
+
+class ListByHabilidades(ListView):
+    """Lista de habilidades por empleado"""
+    template_name = "persona/list_by_habilidades.html" 
+    context_object_name = 'habilidades'
+    def get_queryset(self):
+        empleadoId = self.kwargs["empleadoId"]
+        empleado = Empleado.objects.get(id=int(empleadoId))
+        return empleado.habilidades.all()
