@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
     DetailView,
@@ -85,4 +86,4 @@ class EmpleadoCreateView(CreateView):
     model = Empleado
     #fields = ['first_name', 'last_name', 'job']
     fields = ("__all__")
-    success_url = '/success'
+    success_url = reverse_lazy('persona_app:correcto')

@@ -3,6 +3,8 @@ from django.urls import path
 
 from . import views
 
+app_name = "persona_app"
+
 urlpatterns = [
     path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
     path('lista-by-area/<shortname>/', views.ListByArea.as_view()),
@@ -11,5 +13,5 @@ urlpatterns = [
     path('lista-by-habilidades/<empleadoId>/', views.ListByHabilidades.as_view()),
     path('ver-empleado/<pk>/', views.EmpleadoDetailView.as_view()),
     path('add-empleado/', views.EmpleadoCreateView.as_view()),
-    path('success/', views.SuccessView.as_view()),
+    path('success/', views.SuccessView.as_view(), name='correcto'),
 ]
