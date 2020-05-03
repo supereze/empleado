@@ -32,3 +32,19 @@ class ListByJob(ListView):
             job=job
         )
         return lista
+
+
+class ListByKword(ListView):
+    """Lista empleados por palabra clave"""
+    template_name = "persona/list_by_kword.html" 
+    context_object_name = 'empleados'
+    def get_queryset(self):
+        print('**************')
+        #,""  porque es una tupla
+        palabra_clave = self.request.GET.get("kword","")
+        print("======", palabra_clave)
+        lista = Empleado.objects.filter(
+            first_name = palabra_clave 
+        )
+        print("lista resultado: ", lista    )
+        return lista
