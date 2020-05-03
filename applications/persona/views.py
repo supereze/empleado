@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic import (
     ListView,
     DetailView,
-    CreateView
+    CreateView,
+    TemplateView
 )
 #Models
 from .models import Empleado
@@ -75,9 +76,13 @@ class EmpleadoDetailView(DetailView):
         return context
     
 
+class SuccessView(TemplateView):
+    template_name = "persona/success.html"
+
+
 class EmpleadoCreateView(CreateView):
     template_name = "persona/add.html"
     model = Empleado
     #fields = ['first_name', 'last_name', 'job']
     fields = ("__all__")
-    success_url = '.'
+    success_url = '/success'
