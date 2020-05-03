@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import (
-    ListView
+    ListView,
+    DetailView
 )
 #Models
 from .models import Empleado
@@ -61,3 +62,8 @@ class ListByHabilidades(ListView):
         empleadoId = self.kwargs["empleadoId"]
         empleado = Empleado.objects.get(id=int(empleadoId))
         return empleado.habilidades.all()
+
+
+class EmpleadoDetailView(DetailView):
+    template_name = "persona/detail_persona.html"
+    model = Empleado
