@@ -67,3 +67,9 @@ class ListByHabilidades(ListView):
 class EmpleadoDetailView(DetailView):
     template_name = "persona/detail_persona.html"
     model = Empleado
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
+        context["titulo"] = 'Empleado del mes'
+        return context
+    
