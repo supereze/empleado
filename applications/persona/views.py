@@ -10,7 +10,7 @@ class ListAllEmpleados(ListView):
     model = Empleado
 
 
-class ListByAreaEmpleado(ListView):
+class ListByArea(ListView):
     """Lista empleados de una area"""
     template_name = "persona/list_by_area.html" 
 
@@ -18,5 +18,17 @@ class ListByAreaEmpleado(ListView):
         area = self.kwargs['shortname']
         lista = Empleado.objects.filter(
             departamento__short_name=area
+        )
+        return lista
+
+
+class ListByJob(ListView):
+    """Lista empleados de trabajo"""
+    template_name = "persona/list_by_job.html" 
+
+    def get_queryset(self):
+        job = self.kwargs['job']
+        lista = Empleado.objects.filter(
+            job=job
         )
         return lista
