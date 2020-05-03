@@ -84,6 +84,20 @@ class SuccessView(TemplateView):
 class EmpleadoCreateView(CreateView):
     template_name = "persona/add.html"
     model = Empleado
-    #fields = ['first_name', 'last_name', 'job']
-    fields = ("__all__")
+    fields = [
+        'first_name', 
+        'last_name', 
+        'job',
+        'departamento',
+        'habilidades',
+    ]
+    #fields = ("__all__")
     success_url = reverse_lazy('persona_app:correcto')
+
+    def form_valid(self,form):
+        #logica del proceso
+        #empleado = form.save() guarda en base de datos
+        empleado = form.save(commit=False)#guarda en un instancia pero no en la base de datos
+        empleado.full_name = empleado.first_name + " " + empleado.last_name
+        empleado.save()
+        return super(EmpleadoCreateView, self).form_valid(form)
