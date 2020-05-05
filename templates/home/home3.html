@@ -1,0 +1,19 @@
+{% extends 'home/conmon/base_home.html' %}
+
+{% block titulo %}
+    Home3
+{% endblock titulo %}
+
+{% block cuerpo %}
+    <h1>Prueba Foundation</h1>
+    <div class="grid-x" style="border:1px solid green">
+        <h2 class="cell small-12 large-5" style="border:1px solid red">elemento1</h2>
+        <h2 class="cell large-4">elemento2</h2>
+        <h2 class="cell large-3" style="border:1px solid blue">elemento3</h2>
+        <div class="cell large-4 grid-x" style="border:1px solid yellow">
+            <h4 class="cell large-2">otro elemento 1</h4>
+            <h4 class="cell large-2">otro elemento 2</h4>
+            <h4>otro elemento 3</h4>
+        </div>
+    </div>        
+{% endblock cuerpo %}
