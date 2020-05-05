@@ -11,6 +11,12 @@ from django.views.generic import (
 #Models
 from .models import Empleado
 
+
+class InicioView(TemplateView):
+    """ vista que carga la página de inicio """
+    template_name = "inicio.html"
+
+
 class ListAllEmpleados(ListView):
     template_name = "persona/list_all.html"
     paginate_by = 4
