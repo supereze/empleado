@@ -21,6 +21,7 @@ class ListAllEmpleados(ListView):
     template_name = "persona/list_all.html"
     paginate_by = 4
     ordering = "first_name"
+    context_object_name = 'empleados'
     #model = Empleado
     #http://127.0.0.1:8000/listar-todo-empleados/?page=1
     
