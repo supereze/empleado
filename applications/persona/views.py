@@ -33,11 +33,19 @@ class ListAllEmpleados(ListView):
         return lista
 
 
+class ListEmpleadosAdmin(ListView):
+    template_name = "persona/lista_empleados.html"
+    paginate_by = 10
+    ordering = "first_name"
+    context_object_name = 'empleados'
+    model = Empleado
+
+
 class ListByArea(ListView):
     """Lista empleados de una area"""
     template_name = "persona/list_by_area.html" 
     context_object_name = "empleados"
-    
+
     def get_queryset(self):
         area = self.kwargs['shortname']
         lista = Empleado.objects.filter(
