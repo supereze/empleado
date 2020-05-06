@@ -115,6 +115,7 @@ class EmpleadoCreateView(CreateView):
         'job',
         'departamento',
         'habilidades',
+        'avatar',
     ]
     #fields = ("__all__")
     success_url = reverse_lazy('persona_app:empleados_admin')
@@ -138,6 +139,7 @@ class EmpleadoUpdateView(UpdateView):
         'job',
         'departamento',
         'habilidades',
+        'avatar',
     ]
     success_url = reverse_lazy('persona_app:empleados_admin')
     def post(self,request, *args, **kwargs):

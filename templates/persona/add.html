@@ -11,7 +11,7 @@
     <div class="grid-container">
         <div class="grid-x">
             <h1 class="cell">Registrar Empleado</h1>
-            <form class="cell grid-x grid-margin-x" method="POST">
+            <form class="cell grid-x grid-margin-x" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="cell large-6">
                     <label>Nombres:
@@ -33,9 +33,14 @@
                         {{ form.departamento }}
                     </label>
                 </div>
-                <div class="cell large-12">
+                <div class="cell large-6">
                     <label>Habilidades extra:
                         {{ form.habilidades }}
+                    </label>
+                </div>
+                <div class="cell large-6">
+                    <label>Habilidades extra:
+                        {{ form.avatar }}
                     </label>
                 </div>
                 <div class="cell large-12">
