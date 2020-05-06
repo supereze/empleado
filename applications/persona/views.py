@@ -36,7 +36,8 @@ class ListAllEmpleados(ListView):
 class ListByArea(ListView):
     """Lista empleados de una area"""
     template_name = "persona/list_by_area.html" 
-
+    context_object_name = "empleados"
+    
     def get_queryset(self):
         area = self.kwargs['shortname']
         lista = Empleado.objects.filter(
@@ -48,7 +49,7 @@ class ListByArea(ListView):
 class ListByJob(ListView):
     """Lista empleados de trabajo"""
     template_name = "persona/list_by_job.html" 
-
+    
     def get_queryset(self):
         job = self.kwargs['job']
         lista = Empleado.objects.filter(

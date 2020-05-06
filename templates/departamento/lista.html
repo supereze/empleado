@@ -25,7 +25,7 @@
                                 <td>{{d.id}}</td>
                                 <td>{{d.name}}</td>
                                 <td>{{d.short_name}}</td>
-                                <td><a class="button warning" href="{% url 'persona_app:empleado_detail' d.id %}">Ver Empleados</a></td>
+                                <td><a class="button warning" href="{% url 'persona_app:empleados_area' d.short_name %}">Ver Empleados</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>
