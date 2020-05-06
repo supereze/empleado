@@ -15,7 +15,7 @@
                 <form class="grid-x grid-margin-x" method="POST">
                     {% csrf_token %}
                     <div class="cell large-6">
-                        <label>Nombre:
+                        <label>Nombres:
                             {{ form.first_name }}
                         </label>
                     </div>
@@ -34,15 +34,13 @@
                             {{ form.departamento }}
                         </label>
                     </div>
-                    <div class="cell large-6">
+                    <div class="cell large-12">
                         <label>Habilidades extra:
                             {{ form.habilidades }}
                         </label>
                     </div>
-                    <div class="cell large-6">
-                        <label>
-                            <button type="submit" class="success button">Actualizar</button>
-                        </label>
+                    <div class="cell large-12">
+                        <button type="submit" class="success button">Actualizar</button>
                     </div>
                 </form>
             </div>

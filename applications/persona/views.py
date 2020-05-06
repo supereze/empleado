@@ -117,7 +117,7 @@ class EmpleadoCreateView(CreateView):
         'habilidades',
     ]
     #fields = ("__all__")
-    success_url = reverse_lazy('persona_app:correcto')
+    success_url = reverse_lazy('persona_app:empleados_admin')
 
     def form_valid(self,form):
         #logica del proceso
