@@ -139,7 +139,7 @@ class EmpleadoUpdateView(UpdateView):
         'departamento',
         'habilidades',
     ]
-    success_url = reverse_lazy('persona_app:correcto')
+    success_url = reverse_lazy('persona_app:empleados_admin')
     def post(self,request, *args, **kwargs):
         self.object = self.get_object()
         #Aqui no se han validado los datos
